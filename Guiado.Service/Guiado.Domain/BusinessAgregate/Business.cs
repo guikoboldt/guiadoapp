@@ -8,8 +8,8 @@ namespace Guiado.Domain.BusinessAgregate
     public class Business : Entity, IRootAgregate
     {
         public int Owner { get; private set; }
-        private List<ProductFamily> _productsFamily;
-        public IReadOnlyList<ProductFamily> ProductsFamily => this._productsFamily;
+        private List<BusinessProductFamily> _productFamilies;
+        public IReadOnlyList<BusinessProductFamily> ProductFamilies => this._productFamilies;
         private List<Product> _products;
         public IReadOnlyList<Product> Products => this._products;
         public int CoverArea { get; private set; }
@@ -28,22 +28,22 @@ namespace Guiado.Domain.BusinessAgregate
             this.EndBusinessHour = endBusinessHour;
             this.AvailableDays = availableDays;
             this.Phone = phone;
-            this._productsFamily = new List<ProductFamily>();
+            this._productFamilies = new List<BusinessProductFamily>();
             this._products = new List<Product>();
         }
 
-        public void AddProductFamily(int id, string name, string description)
+        public void AddProductFamily(int id, int productFamilyID)
         {
-            if (!this._productsFamily.Any(o => o.ID == id || string.Equals(o.Name, name)))
+            if (!this._productFamilies.Any(o => o.ID == id ))
             {
-                this._productsFamily.Add(new ProductFamily(id, name, description));
+                this._productFamilies.Add(new BusinessProductFamily(id, this.ID, productFamilyID));
             }
         }
 
         public void AddProduct(int id, string name, string description, double price, int productFamilyID, int quantity)
         {
             //check productfamily
-            if (!this._productsFamily.Any(o => o.ID == productFamilyID))
+            if (!this._productFamilies.Any(o => o.ID == productFamilyID))
             {
                 throw new Exception("the product Family is not valid or the business does not provide this family of items");
             }
@@ -51,7 +51,7 @@ namespace Guiado.Domain.BusinessAgregate
             //check product
             if(!this._products.Any(o => o.ID == id || string.Equals(o.Name, name)))
             {
-                this._products.Add(new Product(id, name, description, price, productFamilyID, quantity));
+                this._products.Add(new Product(id, name, description, price, productFamilyID, quantity, this.ID));
             }
         }
     }

@@ -1,11 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Guiado.Domain.SeedWork;
 
 namespace Guiado.Domain.BusinessAgregate
 {
-    public interface IBusinessRepository
-    {
-        Business Add(Business buyer);
-        Business Update(Business buyer);
-        Task<Business> Get(int businessID);
-    }
+    public interface IBusinessRepository : IRepository<Business>
+    { }
 }
