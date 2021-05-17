@@ -1,13 +1,13 @@
 ﻿namespace Guiado.Domain.SeedWork
 {
-    public class Entity
+    public abstract class Entity
     {
-        public int ID { get; protected set; }
+        public int Id { get; protected set; }
         public string Name { get; protected set; }
 
         public Entity(int id, string name)
         {
-            this.ID = id;
+            this.Id = id;
             this.Name = name;
         }
     }

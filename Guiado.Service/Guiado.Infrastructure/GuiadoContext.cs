@@ -3,6 +3,9 @@ using Guiado.Domain.SeedWork;
 using Guiado.Domain.UserAgregate;
 using Guiado.Infrastructure.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Guiado.Infrastructure
 {
@@ -25,7 +28,20 @@ namespace Guiado.Infrastructure
             modelBuilder.ApplyConfiguration(new ProductFamilyEntityConfiguration());
             modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
         }
+    }
 
+    public class GuiadoContextDesignFactory : IDesignTimeDbContextFactory<GuiadoContext>
+    {
+        private IConfiguration _configuration => new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+                                                                           .AddJsonFile("appsettings.json")
+                                                                           .Build();
 
+        public GuiadoContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<GuiadoContext>()
+                .UseSqlServer("Server=.\\;Database=Guiado;User ID=guiado.admin;Password=RiU7b3HeV4z&ap;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            return new GuiadoContext(optionsBuilder.Options);
+        }
     }
 }

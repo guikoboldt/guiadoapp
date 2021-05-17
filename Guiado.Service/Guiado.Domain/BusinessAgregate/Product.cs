@@ -11,11 +11,11 @@ namespace Guiado.Domain.BusinessAgregate
 
         public int BusinessID { get; private set; }
 
-        public Product(int id, string name, string description, double price, int familyProductID, int quantity, int businessID) : base(id, name)
+        public Product(int id, string name, string description, double price, int productFamilyID, int quantity, int businessID) : base(id, name)
         {
             this.Description = description;
             this.Price = price;
-            this.ProductFamilyID = familyProductID;
+            this.ProductFamilyID = productFamilyID;
             this.Quantity = quantity;
             this.BusinessID = businessID;
         }

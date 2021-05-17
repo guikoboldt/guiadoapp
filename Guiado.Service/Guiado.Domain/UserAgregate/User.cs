@@ -9,12 +9,12 @@ namespace Guiado.Domain.UserAgregate
         public string Email { get; protected set; }
         public string Phone { get; private set; }
         public UserType UserType { get; private set; }
-        public User(int id, string name, string password, string phone, string email, UserType type) : base(id, name)
+        public User(int id, string name, string password, string phone, string email, UserType userType) : base(id, name)
         {
             this.Password = password;
             this.Phone= phone;
             this.Email = email;
-            this.UserType = type;
+            this.UserType = userType;
         }
 
         public void UpdateInfo(string name, string phone, UserType type)

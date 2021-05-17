@@ -9,12 +9,12 @@ namespace Guiado.Infrastructure.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Business> builder)
         {
-            builder.HasKey(o => o.ID);
+            builder.HasKey(o => o.Id);
             builder.Property(o => o.Owner).IsRequired();
             builder.Property(o => o.CoverArea).IsRequired();
             builder.Property(o => o.StartBusinessHour).IsRequired();
             builder.Property(o => o.EndBusinessHour).IsRequired();
-            builder.Property(o => o.AvailableDays).IsRequired(false);
+            builder.Property(o => o.AvailableDays).IsRequired();
             builder.Property(o => o.Phone).IsRequired();
             builder.Property(o => o.Email).IsRequired();
 

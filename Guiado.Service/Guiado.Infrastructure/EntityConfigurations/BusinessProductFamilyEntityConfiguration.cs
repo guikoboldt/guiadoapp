@@ -8,7 +8,7 @@ namespace Guiado.Infrastructure.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<BusinessProductFamily> builder)
         {
-            builder.HasKey(o => o.ID);
+            builder.HasKey(o => o.Id);
             builder.Property(o => o.BusinessID).IsRequired();
             builder.Property(o => o.ProductFamilyID).IsRequired();
 

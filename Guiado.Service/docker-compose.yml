@@ -1,0 +1,35 @@
+version: '3.4'
+
+services: 
+    guiado_service:
+        image: guiado_service
+        ports: 
+            - 9001:9001
+        networks:   
+            - db
+
+    sqlserver_service:
+        #image: mcr.microsoft.com/mssql/server:2017-latest
+        image: luizcarlosfaria/mssql-server-linux:latest
+        environment: 
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=Wvp7&q52YpK!EqGBLKf
+            - MSSQL_PID=Developer
+            - MSSQL_DATABASE=Guiado
+            - MSSQL_USER=guiado.admin
+            - MSSQL_PASSWORD=RiU7b3HeV4z&ap
+        ports: 
+            - 1433:1433
+        volumes: 
+           - sqlserver_data:/var/opt/mssql/data
+           #- ./scripts/:/docker-entrypoint-initdb.d
+        networks: 
+            - db
+
+volumes: 
+   sqlserver_data:
+       driver: local
+
+networks: 
+    db:
+        driver: bridge

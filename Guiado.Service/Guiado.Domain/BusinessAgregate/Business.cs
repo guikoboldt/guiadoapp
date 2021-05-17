@@ -34,24 +34,24 @@ namespace Guiado.Domain.BusinessAgregate
 
         public void AddProductFamily(int id, int productFamilyID)
         {
-            if (!this._productFamilies.Any(o => o.ID == id ))
+            if (!this._productFamilies.Any(o => o.Id == id ))
             {
-                this._productFamilies.Add(new BusinessProductFamily(id, this.ID, productFamilyID));
+                this._productFamilies.Add(new BusinessProductFamily(id, this.Id, productFamilyID));
             }
         }
 
         public void AddProduct(int id, string name, string description, double price, int productFamilyID, int quantity)
         {
             //check productfamily
-            if (!this._productFamilies.Any(o => o.ID == productFamilyID))
+            if (!this._productFamilies.Any(o => o.Id == productFamilyID))
             {
                 throw new Exception("the product Family is not valid or the business does not provide this family of items");
             }
 
             //check product
-            if(!this._products.Any(o => o.ID == id || string.Equals(o.Name, name)))
+            if(!this._products.Any(o => o.Id == id || string.Equals(o.Name, name)))
             {
-                this._products.Add(new Product(id, name, description, price, productFamilyID, quantity, this.ID));
+                this._products.Add(new Product(id, name, description, price, productFamilyID, quantity, this.Id));
             }
         }
     }
