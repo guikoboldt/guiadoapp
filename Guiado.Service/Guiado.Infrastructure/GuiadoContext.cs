@@ -39,7 +39,7 @@ namespace Guiado.Infrastructure
         public GuiadoContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<GuiadoContext>()
-                .UseSqlServer("Server=.\\;Database=Guiado;User ID=guiado.admin;Password=RiU7b3HeV4z&ap;Trusted_Connection=True;MultipleActiveResultSets=true");
+                .UseSqlServer("Server=.\\;Database=Guiado;User ID=guiado.admin;Password=RiU7b3HeV4z&ap;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;");
 
             return new GuiadoContext(optionsBuilder.Options);
         }

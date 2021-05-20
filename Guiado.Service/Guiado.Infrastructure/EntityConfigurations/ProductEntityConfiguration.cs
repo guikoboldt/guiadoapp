@@ -12,12 +12,10 @@ namespace Guiado.Infrastructure.EntityConfigurations
             builder.Property(o => o.Name).IsRequired();
             builder.Property(o => o.Description).IsRequired();
             builder.Property(o => o.Price);
-            builder.Property(o => o.ProductFamilyID).IsRequired();
             builder.Property(o => o.Quantity);
-            builder.Property(o => o.BusinessID).IsRequired();
 
-            builder.HasOne<Business>().WithMany().HasForeignKey(nameof(Product.BusinessID));
-            builder.HasOne<ProductFamily>().WithMany().HasForeignKey(nameof(Product.ProductFamilyID));
+            //builder.HasOne<Business>().WithMany().HasForeignKey(nameof(Product.BusinessId)).IsRequired();
+            builder.HasOne<ProductFamily>().WithMany().HasForeignKey(nameof(Product.ProductFamilyId)).IsRequired();
         }
     }
 }

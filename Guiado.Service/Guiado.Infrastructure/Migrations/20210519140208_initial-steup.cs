@@ -2,7 +2,7 @@
 
 namespace Guiado.Infrastructure.Migrations
 {
-    public partial class initialsetup : Migration
+    public partial class initialsteup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -69,9 +69,8 @@ namespace Guiado.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BusinessID = table.Column<int>(type: "int", nullable: false),
-                    ProductFamilyID = table.Column<int>(type: "int", nullable: false),
-                    BusinessId = table.Column<int>(type: "int", nullable: true)
+                    BusinessId = table.Column<int>(type: "int", nullable: false),
+                    ProductFamilyId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,16 +80,10 @@ namespace Guiado.Infrastructure.Migrations
                         column: x => x.BusinessId,
                         principalTable: "Businesses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_BusinessProductFamily_Businesses_BusinessID",
-                        column: x => x.BusinessID,
-                        principalTable: "Businesses",
-                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BusinessProductFamily_ProductFamilies_ProductFamilyID",
-                        column: x => x.ProductFamilyID,
+                        name: "FK_BusinessProductFamily_ProductFamilies_ProductFamilyId",
+                        column: x => x.ProductFamilyId,
                         principalTable: "ProductFamilies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -104,10 +97,9 @@ namespace Guiado.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    ProductFamilyID = table.Column<int>(type: "int", nullable: false),
+                    ProductFamilyId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    BusinessID = table.Column<int>(type: "int", nullable: false),
-                    BusinessId = table.Column<int>(type: "int", nullable: true),
+                    BusinessId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -118,16 +110,10 @@ namespace Guiado.Infrastructure.Migrations
                         column: x => x.BusinessId,
                         principalTable: "Businesses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Products_Businesses_BusinessID",
-                        column: x => x.BusinessID,
-                        principalTable: "Businesses",
-                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_ProductFamilies_ProductFamilyID",
-                        column: x => x.ProductFamilyID,
+                        name: "FK_Products_ProductFamilies_ProductFamilyId",
+                        column: x => x.ProductFamilyId,
                         principalTable: "ProductFamilies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -144,14 +130,9 @@ namespace Guiado.Infrastructure.Migrations
                 column: "BusinessId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BusinessProductFamily_BusinessID",
+                name: "IX_BusinessProductFamily_ProductFamilyId",
                 table: "BusinessProductFamily",
-                column: "BusinessID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BusinessProductFamily_ProductFamilyID",
-                table: "BusinessProductFamily",
-                column: "ProductFamilyID");
+                column: "ProductFamilyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_BusinessId",
@@ -159,14 +140,9 @@ namespace Guiado.Infrastructure.Migrations
                 column: "BusinessId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_BusinessID",
+                name: "IX_Products_ProductFamilyId",
                 table: "Products",
-                column: "BusinessID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductFamilyID",
-                table: "Products",
-                column: "ProductFamilyID");
+                column: "ProductFamilyId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -10,7 +10,7 @@ namespace Guiado.Infrastructure.EntityConfigurations
         public void Configure(EntityTypeBuilder<Business> builder)
         {
             builder.HasKey(o => o.Id);
-            builder.Property(o => o.Owner).IsRequired();
+            builder.HasOne<User>().WithMany().HasForeignKey(nameof(Business.Owner)).IsRequired();
             builder.Property(o => o.CoverArea).IsRequired();
             builder.Property(o => o.StartBusinessHour).IsRequired();
             builder.Property(o => o.EndBusinessHour).IsRequired();
@@ -23,8 +23,6 @@ namespace Guiado.Infrastructure.EntityConfigurations
 
             navigation = builder.Metadata.FindNavigation(nameof(Business.Products));
             navigation.SetPropertyAccessMode(PropertyAccessMode.Field);
-
-            builder.HasOne<User>().WithMany().HasForeignKey(nameof(Business.Owner));
         }
     }
 }

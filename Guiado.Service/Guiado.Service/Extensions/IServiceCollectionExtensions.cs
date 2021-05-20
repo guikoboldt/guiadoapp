@@ -1,5 +1,4 @@
 ﻿using Guiado.Infrastructure;
-using Guiado.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +17,7 @@ namespace Guiado.API.Extensions
                                options.UseSqlServer(configuration.GetValue<string>("ConnectionStrings"),
                                    sqlServerOptionsAction: sqlOptions =>
                                    {
-                                       sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                                       sqlOptions.MigrationsAssembly(typeof(GuiadoContext).GetTypeInfo().Assembly.GetName().Name);
                                        sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
                                    });
                            });
