@@ -18,6 +18,7 @@ namespace Guiado.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public IActionResult Get()
         {
+            this._logger.LogInformation("Someone is requesting the test");
             return this.Ok("welcome");
         }
     }

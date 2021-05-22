@@ -1,13 +1,11 @@
-using Guiado.API.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Guiado.Service
+namespace Guiado.UI
 {
     public class Startup
     {
@@ -21,9 +19,8 @@ namespace Guiado.Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddGuiadoDBContext(this.Configuration)
-                    .AddControllersWithViews()
-                    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0);
+
+            services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -41,21 +38,25 @@ namespace Guiado.Service
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                app.UseExceptionHandler("/Error");
             }
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-            app.UseRouting()
-               .UseEndpoints(endpoints =>
-               {
-                   endpoints.MapControllers();
-               });
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action=Index}/{id?}");
+            });
 
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";
+
                 if (env.IsDevelopment())
                 {
                     spa.UseReactDevelopmentServer(npmScript: "start");

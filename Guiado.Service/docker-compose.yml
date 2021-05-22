@@ -9,6 +9,7 @@ services:
             - db
 
     sqlserver_service:
+        container_name: sqlserver_service
         #image: mcr.microsoft.com/mssql/server:2017-latest
         image: luizcarlosfaria/mssql-server-linux:latest
         environment: 

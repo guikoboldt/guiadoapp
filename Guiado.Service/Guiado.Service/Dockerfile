@@ -2,10 +2,13 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+
+RUN apt-get update
+RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install --yes nodejs
+
 WORKDIR /src
 COPY ["Guiado.Service/Guiado.API.csproj", "Guiado.Service/"]
 COPY ["Guiado.Infrastructure/Guiado.Infrastructure.csproj", "Guiado.Infrastructure/"]

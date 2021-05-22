@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guiado.API", "Guiado.Service\Guiado.API.csproj", "{AAFE07F4-0DF2-49E1-97CA-299FFD286854}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Guiado.API", "Guiado.Service\Guiado.API.csproj", "{AAFE07F4-0DF2-49E1-97CA-299FFD286854}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guiado.Domain", "Guiado.Domain\Guiado.Domain.csproj", "{0DCFFB36-1932-40D2-8A61-8903C95AD9D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Guiado.Domain", "Guiado.Domain\Guiado.Domain.csproj", "{0DCFFB36-1932-40D2-8A61-8903C95AD9D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guiado.Infrastructure", "Guiado.Infrastructure\Guiado.Infrastructure.csproj", "{2C3C99EE-1208-403D-8BC2-3405D683F25A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Guiado.Infrastructure", "Guiado.Infrastructure\Guiado.Infrastructure.csproj", "{2C3C99EE-1208-403D-8BC2-3405D683F25A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
