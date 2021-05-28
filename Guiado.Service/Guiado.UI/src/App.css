@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#header-topbar {
+    height: 8%;
+}
+
+body {
+    height: 84%;
+    background: #F0F0F5;
+    -webkit-font-smoothing: antialiased;
+    color: var(--text-color);
+    vertical-align: middle;
+}
+
+footer {
+    height: 8%;
+}

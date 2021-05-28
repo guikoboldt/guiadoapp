@@ -1,32 +1,19 @@
-import AppTopbar from '../../Components/AppTopBar';
-import AppFooter from '../../Components/AppFooter';
-
 import logo from '../../logo.svg';
+import SearchBar from '../../Components/SearchBar';
+
 import './styles.css';
 
 const Home = () => {
     return (
         <div id="home">
-            <header>
-                <AppTopbar isHidden={false} onToggleMenu={() => null} />
-            </header>
+            <div id="logo">
+                <img id="logo-img" src={logo} alt="logo"/>
+            </div>
 
-            <body className="App-header">
-                <img src={logo} alt="logo" height="auto" width="1290"/>
-                {/* <img src={logo} className="App-logo" alt="logo" />
-                <p> Edit <code>src/App.tsx</code> and save to reload.</p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Learn React
-                </a>     */}
-            </body>
-
-            <footer>
-                <AppFooter />
-            </footer>
+            <div id="searchbar">
+                {/* <input type="text" placeholder="Digite o produto/serviço que deseja"/> */}
+                <SearchBar />
+            </div>
         </div>
     );
 };
