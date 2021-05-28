@@ -6,8 +6,8 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 
 RUN apt-get update
-RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get install --yes nodejs
+RUN curl --silent --location https://deb.nodesource.com/setup_14.x | sudo -E bash -
+RUN apt-get install -y nodejs
 
 WORKDIR /src
 COPY ["Guiado.Service/Guiado.API.csproj", "Guiado.Service/"]

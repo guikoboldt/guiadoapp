@@ -1,0 +1,17 @@
+@import './GlobalVariables.scss';
+
+#appFooter-layout {
+    transition: margin-left $transitionDuration;
+    background-color: $footerBgColor;
+    margin-left: 0;
+    padding: 1em 2em;
+    height: 55px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+#footer-text {
+    vertical-align: top;
+}

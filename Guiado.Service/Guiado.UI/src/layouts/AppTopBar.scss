@@ -1,0 +1,35 @@
+@import './mixins.scss';
+@import './GlobalVariables.scss';
+
+#appTopBar-layout {
+    position: fixed;
+    left: 0;
+    height: 50px;
+    padding: 1em 2em 0em 2em;
+    color: #ffffff;
+    z-index: 999;
+    right: 0;
+    @include clearfix();
+    @include linear-gradient-left($topbarLeftBgColor,$topbarRightBgColor);
+    transition: left $transitionDuration;
+}
+
+#appTopBar-menu-button {
+    background-color: $topbarLeftBgColor;
+    border: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: $topbarItemColor;
+    transition: color $transitionDuration;
+    span {
+        font-size: 1.5em;
+    }
+    &:hover {
+        color: $topbarItemHoverColor;
+    }
+}
+
+button {
+    cursor: pointer;
+}
