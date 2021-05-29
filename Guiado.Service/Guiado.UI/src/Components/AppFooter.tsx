@@ -6,9 +6,9 @@ import '../layouts/AppFooter.scss';
 const AppFooter = () => {
 
     return (
-        <div id="appFooter-layout">
+        <div className="layout-footer">
             <img src={logo} alt="Logo" width="80" />
-            <span id="footer-text" style={{ 'marginLeft': '5px' }}>GUIADO APP</span>
+            <span className="footer-text" style={{ 'marginLeft': '5px' }}>GUIADO APP</span>
         </div>
     );
 }

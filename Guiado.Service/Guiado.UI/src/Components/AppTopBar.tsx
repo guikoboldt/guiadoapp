@@ -5,17 +5,15 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import '../layouts/AppTopBar.scss';
 
 interface AppTopBarProperties {
-    isHidden: boolean,
     onToggleMenu: MouseEventHandler<HTMLButtonElement>
 }
 
 const AppTopbar: React.FC<AppTopBarProperties> = (props) => {
     return (
-        <div id="appTopBar-layout">
-            <button id="appTopBar-menu-button"
+        <div className="layout-topbar">
+            <button className="layout-menu-button"
                     type="button"
                     data-tip='Menu'
-                    hidden={props.isHidden}
                     onClick={props.onToggleMenu}>
                 <ReactTooltip />
                 <span>

@@ -1,18 +1,21 @@
 #home {
-  height: inherit;
+  height: 100%;
   width: inherit;
 }
 
 #logo {
   vertical-align: middle;
   text-align: center;
+  height: 50%;
 }
 
 #logo-img {
   height: 400px;
+  margin-top: 70px;
 }
 
-#searchbar {  
+#searchbar {
+  height: 50%;
   vertical-align: middle;
   text-align: center;
 }

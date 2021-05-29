@@ -1,11 +1,31 @@
 /* General */
 $transitionDuration:.2s;
+$focusShadowColor:#8dcdff;
+$fontSize:14px;
+$bodyBgColor:#edf0f5;
+$textColor:#333333;
 
 /* TopBar */
 $topbarLeftBgColor:#0388E5;
 $topbarRightBgColor:#07BDF4;
 $topbarItemColor:#ffffff;
 $topbarItemHoverColor:#c3e8fb;
+
+/* Menu Common */
+$menuitemBadgeBgColor:#007be5;
+$menuitemBadgeColor:#ffffff;
+$submenuFontSize:13px;
+$menuitemActiveRouteColor:#1fa1fc;
+
+/* Menu Dark */
+$menuitemColor:#232428;
+$menuDarkBgColorFirst:#191a1d;
+$menuDarkBgColorLast:#191a1d;
+$menuitemDarkColor:#ffffff;
+$menuitemDarkHoverColor:#0388e5;
+$menuitemDarkActiveColor:#0388e5;
+$menuitemDarkActiveBgColor:#2e3035;
+$menuitemDarkBorderColor:rgba(52, 56, 65, 0.6);
 
 /* Footer */
 $footerBgColor:#ffffff;

@@ -1,10 +1,10 @@
 @import './mixins.scss';
 @import './GlobalVariables.scss';
 
-#appTopBar-layout {
-    height: 100%;
-    left: 0; 
-    padding: 1em 2em;
+.layout-topbar {
+    position: fixed;
+    height: 8%;
+    padding: 1.5em 2em;
     color: #ffffff;
     z-index: 999;
     right: 0;
@@ -12,10 +12,9 @@
     @include linear-gradient-left($topbarLeftBgColor,$topbarRightBgColor);
     transition: left $transitionDuration;
     text-align: left;
-    vertical-align: middle;
 }
 
-#appTopBar-menu-button {
+.layout-menu-button {
     background-color: $topbarLeftBgColor;
     border: #ffffff;
     cursor: pointer;
@@ -23,8 +22,6 @@
     text-decoration: none;
     color: $topbarItemColor;
     transition: color $transitionDuration;
-    margin-top: -10px;
-
     span {
         font-size: 1.5em;
     }

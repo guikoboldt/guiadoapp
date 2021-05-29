@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
-import Home from './pages/Home';
+import Main from './pages/Main';
 
-const Routes = () => {
+const MainRoutes = () => {
     return (
         <BrowserRouter>
-            <Route path="/" component={Home} />
+            <Route exact path="/" component={Main} />
         </BrowserRouter>
     );
 }
 
-export default Routes;
+export default MainRoutes;

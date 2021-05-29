@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { useState, ChangeEvent }  from 'react';
 import { FcSearch } from 'react-icons/fc';
 
 import '../layouts/SearchBar.css';
 
-const SearchBar = () => {
+interface SearchBarProps {
+    onSearch(text: string) : void;
+};
+
+const SearchBar: React.FC<SearchBarProps> = (props)  => {
+
+    const [textToSearch, setTextToSearch] = useState("");
+
+    function handleInputSearchChange(event: ChangeEvent<HTMLInputElement>)
+    {
+        const { value } = event.target;
+        setTextToSearch(value);
+    }
+
+    function onKeyPressed(key: string) {
+        if(key === "Enter" )
+        {
+            props.onSearch(textToSearch);
+        }
+    }
+
     return (
         <div className="home">
-            {/* <input onChange={e => setQuery(e)} onKeyPress={e => handleKey(e)} autoFocus={true} /> */}
-            <input autoFocus={true} placeholder="O que deseja encontrar?" />
-            {/* <img onClick={search} className="glass" alt="magnifying glass" src={glass} /> */}
-            <FcSearch className="glass" />
+            <input
+                placeholder="O que deseja encontrar?" 
+                onKeyPress={e => onKeyPressed(e.key)}
+                onChange={handleInputSearchChange} />
+            <FcSearch className="glass" onClick={() => props.onSearch(textToSearch)}/>
         </div>
     );
 };

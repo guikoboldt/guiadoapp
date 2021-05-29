@@ -1,0 +1,37 @@
+@import './GlobalVariables.scss';
+
+@media (min-width: 1025px) {
+            .layout-topbar {
+                left: 250px;
+            }
+
+            .layout-footer {
+                margin-left: 250px;
+            }
+
+            &.layout-sidebar-inactive {
+                .layout-topbar  {
+                    left: 0;
+                }
+
+                .layout-footer {
+                    margin-left: 0;
+                }
+            }
+}
+
+@media (max-width: 1024px) {
+        .layout-topbar {
+            left: 0;
+        }
+
+        .layout-footer {
+            margin-left: 0;
+        }
+
+        .layout-sidebar {
+            transition: left $transitionDuration;
+            left: -250px;
+            margin-top: 50px;
+        }
+}

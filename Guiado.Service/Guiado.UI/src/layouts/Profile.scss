@@ -1,0 +1,132 @@
+@import './GlobalVariables.scss';
+
+.layout-profile {
+    text-align: center;
+    padding: 20px 0;
+
+    img {
+        width: 56px;
+        margin: 10px;
+    }
+
+    .layout-profile-link {
+        cursor: pointer;
+        display: inline-block;
+        margin-bottom: .75em;
+        transition: color $transitionDuration;
+        background-color: $menuDarkBgColorFirst;
+        border: none;
+
+        .profile-config-icon {
+            font-size: 18px;
+            vertical-align: bottom;
+            margin-left: .5em;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            button {
+                width: 100%;
+                padding: 1em;
+                border: 0 none;
+                border-radius: 0;
+                cursor: pointer;
+                transition: color $transitionDuration;
+
+                span {
+                    margin-left: .25em;
+                    vertical-align: middle;
+                }
+
+                .profile-config-icon {
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        &.layout-submenu-wrapper-enter,
+        &.layout-submenu-wrapper-leave-to {
+            max-height: 0;
+        }
+
+        &.layout-submenu-wrapper-enter-to,
+        &.layout-submenu-wrapper-leave {
+            max-height: 1000px;
+        }
+
+        &.layout-submenu-wrapper-leave-active {
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
+        }
+
+        &.layout-submenu-wrapper-enter-active {
+            overflow: hidden;
+            transition: max-height 1s ease-in-out;
+        }
+    }
+}
+
+.link {
+	text-align: left;
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+	border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggleable-content-enter {
+    max-height: 0;
+}
+
+.toggleable-content-enter-active {
+    overflow: hidden;
+    max-height: 1000px;
+    transition: max-height 1s ease-in-out;
+}
+
+.toggleable-content-enter-done {
+    transform: none;
+}
+
+.toggleable-content-exit {
+    max-height: 1000px;
+}
+
+.toggleable-content-exit-active {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
+}
+
+.layout-sidebar-dark {
+    .layout-profile {
+        .layout-profile-link {
+            color: $menuitemDarkColor;
+
+            &:hover {
+                color: $menuitemDarkHoverColor;
+            }
+        }
+
+        ul {
+            background-color: $menuitemDarkActiveBgColor;
+
+            li {
+                button {
+                    color: $menuitemDarkColor;
+
+                    &:hover {
+                        color: $menuitemDarkHoverColor;
+                    }
+                }
+            }
+        }
+    }
+}
